@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miss Dynamics — A Boutique Microsoft Dynamics 365 Advisory</title>
+<meta name="description" content="Small senior team. No offshore handoff. Microsoft Dynamics 365 done with the care it deserves.">
+<meta name="theme-color" content="#E11D74">
+<meta property="og:title" content="Miss Dynamics — A Boutique Microsoft Dynamics 365 Advisory">
+<meta property="og:description" content="Small senior team. No offshore handoff. Microsoft Dynamics 365 done with the care it deserves.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://missdynamics.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23E11D74'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='serif' font-style='italic' font-weight='900' fill='%23FEF7E7' font-size='20'%3EM%3C/text%3E%3C/svg%3E">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        display: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif']
+      },
+      colors: {
+        cream:    { 50: '#FEFCF3', 100: '#FEF7E7', 200: '#F9EBC8' },
+        rose:     { 500: '#E11D74', 600: '#BE185D', 700: '#9F1359' },
+        coral:    { 400: '#FB7185', 500: '#F43F5E' },
+        ink:      { 900: '#1B1014', 800: '#2D1D24', 700: '#4A2F3A', 600: '#6E4759' }
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { font-family: 'Inter', system-ui, sans-serif; }
+  .font-display { font-family: 'Fraunces', Georgia, serif; }
+  .italic-display { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-variation-settings: "opsz" 144, "SOFT" 100; }
+  *:focus-visible {
+    outline: 3px solid #E11D74;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .ribbon {
+    background: linear-gradient(110deg, #E11D74 0%, #F43F5E 100%);
+  }
+  .deco-line {
+    background-image: repeating-linear-gradient(45deg, rgba(225,29,116,.12) 0 2px, transparent 2px 8px);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(20px); animation: rise .7s ease-out forwards; }
+    .reveal-2 { animation-delay: .1s; }
+    .reveal-3 { animation-delay: .2s; }
+    @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+  }
+</style>
+</head>
+<body class="bg-cream-50 text-ink-900 antialiased">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 bg-rose-500 text-white px-4 py-2 rounded-md z-50 text-sm font-medium">Skip to content</a>
+
+<header class="sticky top-0 z-30 border-b border-ink-900/10 bg-cream-50/90 backdrop-blur">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3" aria-label="Miss Dynamics home">
+      <span class="w-8 h-8 rounded-full bg-rose-500 grid place-items-center text-cream-50 font-display italic-display font-black text-lg" aria-hidden="true">M</span>
+      <span class="font-display font-bold text-lg tracking-tight">Miss <span class="italic-display text-rose-600">Dynamics</span></span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-ink-700" aria-label="Primary">
+      <a href="#services" class="hover:text-rose-600 transition-colors">Services</a>
+      <a href="#principles" class="hover:text-rose-600 transition-colors">Principles</a>
+      <a href="#about" class="hover:text-rose-600 transition-colors">About</a>
+      <a href="#contact" class="inline-flex items-center gap-1.5 bg-ink-900 hover:bg-rose-600 text-cream-50 px-4 py-2 rounded-full transition-colors min-h-[44px]">
+        Get in touch
+      </a>
+    </nav>
+    <a href="#contact" class="md:hidden bg-ink-900 text-cream-50 px-4 py-2 rounded-full text-sm font-medium min-h-[44px] inline-flex items-center">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 deco-line opacity-40" aria-hidden="true"></div>
+    <div class="relative max-w-7xl mx-auto px-6 pt-20 pb-24 md:pt-32 md:pb-32">
+      <div class="grid md:grid-cols-12 gap-12 items-center">
+        <div class="md:col-span-7 reveal">
+          <div class="inline-flex items-center gap-2 bg-cream-100 border border-ink-900/10 px-3 py-1.5 rounded-full text-xs font-semibold mb-7 text-ink-700">
+            <span class="w-1.5 h-1.5 bg-rose-500 rounded-full" aria-hidden="true"></span>
+            A boutique Microsoft Dynamics 365 advisory
+          </div>
+          <h1 class="font-display text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[1.02] tracking-tight mb-7">
+            We don&rsquo;t miss<br>
+            the <span class="italic-display text-rose-600 font-medium">details.</span>
+          </h1>
+          <p class="text-lg md:text-xl text-ink-700 leading-relaxed mb-10 max-w-2xl">
+            Microsoft Dynamics 365, done with the care it deserves. Three senior consultants.
+            One project at a time. No offshore handoff, no junior shuffle, no surprises in the
+            invoice.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="#contact" class="inline-flex items-center justify-center gap-2 ribbon hover:opacity-90 text-cream-50 px-7 py-4 rounded-full text-base font-semibold transition-all min-h-[52px]">
+              Start a conversation
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#services" class="inline-flex items-center justify-center gap-2 bg-cream-50 hover:bg-cream-100 text-ink-900 border border-ink-900/15 px-7 py-4 rounded-full text-base font-semibold transition-colors min-h-[52px]">
+              What we do
+            </a>
+          </div>
+        </div>
+        <aside class="md:col-span-5 reveal reveal-2">
+          <figure class="relative">
+            <div class="absolute -inset-3 bg-rose-500/15 rounded-[2rem] rotate-2" aria-hidden="true"></div>
+            <blockquote class="relative bg-cream-50 border border-ink-900/10 rounded-[1.75rem] p-8 shadow-sm">
+              <svg class="w-10 h-10 text-rose-500 mb-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 7H5a2 2 0 00-2 2v6a2 2 0 002 2h2v-6H5V9h4V7zm10 0h-4a2 2 0 00-2 2v6a2 2 0 002 2h2v-6h-4V9h6V7z" transform="scale(-1,1) translate(-24,0)"/></svg>
+              <p class="font-display italic-display text-2xl md:text-[1.6rem] leading-snug text-ink-800 mb-6">
+                A previous partner spent six months and a six-figure budget and we still
+                couldn&rsquo;t close the books. Miss Dynamics had us live in eleven weeks.
+              </p>
+              <footer class="text-sm">
+                <div class="font-bold">Karen R.</div>
+                <div class="text-ink-600">CFO, mid-market distributor</div>
+              </footer>
+            </blockquote>
+          </figure>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-24 md:py-32 bg-cream-100/60 border-y border-ink-900/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-2xl mb-16">
+        <div class="text-xs uppercase tracking-[0.2em] text-rose-600 font-bold mb-4">What we do</div>
+        <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-5">
+          Three things, &mdash;<br>
+          done <span class="italic-display text-rose-600 font-medium">properly.</span>
+        </h2>
+        <p class="text-lg text-ink-700">
+          We turn down the work that doesn&rsquo;t fit. The work we keep, we finish.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5">
+        <article class="bg-cream-50 rounded-3xl p-8 border border-ink-900/10 hover:border-rose-500 transition-colors">
+          <div class="font-display italic-display text-rose-500 text-3xl font-bold mb-5">01</div>
+          <h3 class="font-display text-2xl font-bold mb-3">Implementation</h3>
+          <p class="text-base text-ink-700 leading-relaxed mb-4">
+            Business Central, Sales, Customer Service. Scoped in writing, priced up front,
+            shipped in eight-week increments.
+          </p>
+          <ul class="text-sm text-ink-700 space-y-2 mt-6 pt-6 border-t border-ink-900/5">
+            <li class="flex gap-2"><span class="text-rose-500" aria-hidden="true">&#10003;</span>Fixed scope &amp; fee</li>
+            <li class="flex gap-2"><span class="text-rose-500" aria-hidden="true">&#10003;</span>Weekly demos, not status reports</li>
+            <li class="flex gap-2"><span class="text-rose-500" aria-hidden="true">&#10003;</span>Migration from QuickBooks, NetSuite, Salesforce</li>
+          </ul>
+        </article>
+        <article class="bg-cream-50 rounded-3xl p-8 border border-ink-900/10 hover:border-rose-500 transition-colors">
+          <div class="font-display italic-display text-rose-500 text-3xl font-bold mb-5">02</div>
+          <h3 class="font-display text-2xl font-bold mb-3">Recovery</h3>
+          <p class="text-base text-ink-700 leading-relaxed mb-4">
+            For projects that have stalled, gone over budget, or never quite landed. We come
+            in, stabilise, and finish what the last team couldn&rsquo;t.
+          </p>
+          <ul class="text-sm text-ink-700 space-y-2 mt-6 pt-6 border-t border-ink-900/5">
+            <li class="flex gap-2"><span class="text-rose-500" aria-hidden="true">&#10003;</span>Honest 2-week assessment</li>
+            <li class="flex gap-2"><span class="text-rose-500" aria-hidden="true">&#10003;</span>Resume, replace, or roll back &mdash; you choose</li>
+            <li class="flex gap-2"><span class="text-rose-500" aria-hidden="true">&#10003;</span>No finger pointing at previous vendor</li>
+          </ul>
+        </article>
+        <article class="bg-cream-50 rounded-3xl p-8 border border-ink-900/10 hover:border-rose-500 transition-colors">
+          <div class="font-display italic-display text-rose-500 text-3xl font-bold mb-5">03</div>
+          <h3 class="font-display text-2xl font-bold mb-3">Fractional</h3>
+          <p class="text-base text-ink-700 leading-relaxed mb-4">
+            A senior D365 lead, a day or two a week. For teams that need adult supervision
+            but not a full-time hire.
+          </p>
+          <ul class="text-sm text-ink-700 space-y-2 mt-6 pt-6 border-t border-ink-900/5">
+            <li class="flex gap-2"><span class="text-rose-500" aria-hidden="true">&#10003;</span>Monthly retainer</li>
+            <li class="flex gap-2"><span class="text-rose-500" aria-hidden="true">&#10003;</span>Architecture reviews, roadmap, hiring help</li>
+            <li class="flex gap-2"><span class="text-rose-500" aria-hidden="true">&#10003;</span>Cancel anytime, no minimum term</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPLES -->
+  <section id="principles" class="py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-2xl mb-16">
+        <div class="text-xs uppercase tracking-[0.2em] text-rose-600 font-bold mb-4">How we work</div>
+        <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-5">
+          Three principles. <span class="italic-display text-rose-600 font-medium">No exceptions.</span>
+        </h2>
+      </div>
+      <div class="space-y-6">
+        <div class="grid md:grid-cols-12 gap-8 items-start border-t border-ink-900/10 pt-10">
+          <div class="md:col-span-3">
+            <div class="font-display italic-display text-rose-500 text-5xl font-bold">i.</div>
+          </div>
+          <div class="md:col-span-9">
+            <h3 class="font-display text-3xl font-bold mb-3">Senior people, on your project.</h3>
+            <p class="text-lg text-ink-700 leading-relaxed">
+              The person you meet in the first call is the person doing the work.
+              No bait-and-switch. No offshore handoff. No twelve-person org chart for a
+              three-person project.
+            </p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-12 gap-8 items-start border-t border-ink-900/10 pt-10">
+          <div class="md:col-span-3">
+            <div class="font-display italic-display text-rose-500 text-5xl font-bold">ii.</div>
+          </div>
+          <div class="md:col-span-9">
+            <h3 class="font-display text-3xl font-bold mb-3">Working software, every two weeks.</h3>
+            <p class="text-lg text-ink-700 leading-relaxed">
+              You see something that runs at the end of every sprint. No twelve-week black
+              boxes. No PowerPoint deliverables. No status meetings disguised as progress.
+            </p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-12 gap-8 items-start border-t border-b border-ink-900/10 py-10">
+          <div class="md:col-span-3">
+            <div class="font-display italic-display text-rose-500 text-5xl font-bold">iii.</div>
+          </div>
+          <div class="md:col-span-9">
+            <h3 class="font-display text-3xl font-bold mb-3">We say no to bad-fit work.</h3>
+            <p class="text-lg text-ink-700 leading-relaxed">
+              If your problem isn&rsquo;t a Dynamics problem, we&rsquo;ll tell you on the
+              first call &mdash; and recommend who to talk to instead. We&rsquo;d rather lose
+              the deal than mis-sell the platform.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / FOUNDER NOTE -->
+  <section id="about" class="py-24 md:py-32 bg-ink-900 text-cream-50 relative overflow-hidden">
+    <div class="absolute inset-0 deco-line opacity-20" aria-hidden="true"></div>
+    <div class="relative max-w-4xl mx-auto px-6 text-center">
+      <div class="text-xs uppercase tracking-[0.2em] text-coral-400 font-bold mb-6">A short note</div>
+      <p class="font-display italic-display text-3xl md:text-4xl leading-snug mb-10">
+        &ldquo;Most D365 projects fail not because the software is wrong, but because the
+        people implementing it never had to live with the result. We do. We pick clients we
+        can do right by, and we finish what we start.&rdquo;
+      </p>
+      <div class="inline-flex items-center gap-4">
+        <span class="w-14 h-14 rounded-full bg-rose-500 grid place-items-center font-display italic-display text-cream-50 text-xl font-black" aria-hidden="true">M</span>
+        <div class="text-left">
+          <div class="font-bold">Miss Dynamics</div>
+          <div class="text-sm text-cream-200/70">Founder &amp; principal consultant</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" class="py-24 md:py-32">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div class="text-xs uppercase tracking-[0.2em] text-rose-600 font-bold mb-6">Get in touch</div>
+      <h2 class="font-display text-5xl md:text-6xl font-bold leading-tight mb-6">
+        Tell us what&rsquo;s on <span class="italic-display text-rose-600 font-medium">your plate.</span>
+      </h2>
+      <p class="text-lg text-ink-700 max-w-2xl mx-auto mb-10">
+        A short email gets a short reply within one business day. No discovery-call gauntlet.
+        No CRM nurture sequence. Just a real person reading what you sent.
+      </p>
+      <a href="/cdn-cgi/l/email-protection#e8808d848487a885819b9b8c91868985818b9bc68b8785d79b9d8a828d8b9cd5a08d848487cddad88e9a8785cddad891879d9acddad89f8d8a9b819c8d" class="inline-flex items-center justify-center gap-3 ribbon hover:opacity-90 text-cream-50 px-8 py-5 rounded-full text-lg font-semibold transition-all min-h-[56px]">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M4 4l8 7 8-7"/></svg>
+        <span class="__cf_email__" data-cfemail="ec8489808083ac81859f9f8895828d81858f9fc28f8381">[email&#160;protected]</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t border-ink-900/10 bg-cream-100/40 py-12">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      <span class="w-7 h-7 rounded-full bg-rose-500 grid place-items-center text-cream-50 font-display italic-display font-black" aria-hidden="true">M</span>
+      <span class="font-display font-bold">Miss <span class="italic-display text-rose-600">Dynamics</span></span>
+      <span class="text-sm text-ink-700 ml-2">&copy; 2026 &mdash; A boutique D365 advisory</span>
+    </div>
+    <div class="text-sm text-ink-700">
+      <a href="/cdn-cgi/l/email-protection#7d15181111123d10140e0e1904131c10141e0e531e1210" class="hover:text-rose-600 transition-colors"><span class="__cf_email__" data-cfemail="5b333e3737341b363228283f22353a3632382875383436">[email&#160;protected]</span></a>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
