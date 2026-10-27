@@ -43,10 +43,13 @@ jobs:
         if: ${{ !cancelled() && steps.tools.outcome == 'success' }}
         run: '"$RUNNER_TEMP/tools/node_modules/.bin/html-validate" "**/*.html"'
 
+      # linkinator serves the checkout on 127.0.0.1, so the external-URL skip
+      # must exempt that host or nothing gets checked. /cdn-cgi/ paths exist
+      # only at the Cloudflare edge.
       - name: "Check: local links resolve"
         id: links
         if: ${{ !cancelled() && steps.tools.outcome == 'success' }}
-        run: '"$RUNNER_TEMP/tools/node_modules/.bin/linkinator" . --recurse --skip "^https?://"'
+        run: '"$RUNNER_TEMP/tools/node_modules/.bin/linkinator" . --recurse --skip "^https?://(?!127\.0\.0\.1[:/]|localhost[:/])" --skip "/cdn-cgi/"'
 
       - name: "Check: no localhost references"
         id: localhost

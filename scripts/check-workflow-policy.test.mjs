@@ -30,6 +30,24 @@ test('passes setup steps without a condition and checks that run through', () =>
   assert.deepEqual(lintWorkflow(text), []);
 });
 
+test('ignores lists outside steps and comments between steps', () => {
+  const text = [
+    'on:',
+    '  pull_request:',
+    '    branches:',
+    '      - main',
+    'jobs:',
+    '  validate:',
+    '    steps:',
+    '      - name: "Setup: install"',
+    '        run: npm install',
+    '      # a note about the next step',
+    '      - name: "Check: html"',
+    '        run: html-validate',
+  ].join('\n');
+  assert.deepEqual(lintWorkflow(text), ['workflow: step "Check: html" must start its condition with ${{ !cancelled() }}']);
+});
+
 test('fails a check step that lost its !cancelled() condition', () => {
   const text = workflow(['      - name: "Check: html"', '        run: html-validate "**/*.html"'].join('\n'));
   assert.match(lintWorkflow(text).join('\n'), /Check: html.*!cancelled/);

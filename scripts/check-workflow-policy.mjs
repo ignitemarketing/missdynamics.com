@@ -22,30 +22,31 @@ const RUN_THROUGH = /^\$\{\{\s*!cancelled\(\)/;
 export function parseSteps(text) {
   const lines = text.split('\n');
   const steps = [];
+  let inSteps = false;
   let stepIndent = null;
   let current = null;
   for (const line of lines) {
     if (/^\s*steps:\s*$/.test(line)) {
+      inSteps = true;
       stepIndent = null;
       current = null;
       continue;
     }
+    if (!inSteps || line.trim() === '' || line.trim().startsWith('#')) continue;
+    const indent = line.match(/^\s*/)[0].length;
     const item = line.match(/^(\s*)- (.*)$/);
-    if (item && (stepIndent === null || item[1].length === stepIndent)) {
-      stepIndent = item[1].length;
+    if (item && (stepIndent === null || indent === stepIndent)) {
+      stepIndent = indent;
       current = { lines: [item[2]] };
       steps.push(current);
       continue;
     }
-    if (current && line.trim() !== '') {
-      const indent = line.match(/^\s*/)[0].length;
-      if (indent <= stepIndent) {
-        current = null;
-        stepIndent = null;
-        continue;
-      }
-      current.lines.push(line.trim());
+    if (stepIndent !== null && indent <= stepIndent) {
+      inSteps = false;
+      current = null;
+      continue;
     }
+    current?.lines.push(line.trim());
   }
   return steps.map(({ lines: body }) => {
     const field = (key) => {
