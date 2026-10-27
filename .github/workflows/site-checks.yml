@@ -1,0 +1,66 @@
+# Pull request checks for the static site. The job id stays `validate` because
+# the branch ruleset on main requires a check with that name.
+#
+# Every check is its own step and runs even after an earlier one failed, and
+# the last step names every failure. scripts/check-workflow-policy.mjs fails
+# the build if a step loses that condition or chains two checks together.
+
+name: site-checks
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-checks-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: "Setup: check out the pull request merge ref"
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      # --legacy-peer-deps: html-validate's optional jest/vitest peers crash
+      # npm 10's resolver with "Cannot read properties of null (reading
+      # 'edgesOut')", the same error that broke the old hermes npx step.
+      - name: "Setup: install check tools"
+        id: tools
+        run: npm install --no-save --no-audit --no-fund --legacy-peer-deps --prefix "$RUNNER_TEMP/tools" html-validate@11.6.2 linkinator@8.0.3
+
+      - name: "Check: workflow policy"
+        id: policy
+        if: ${{ !cancelled() }}
+        run: node --test scripts/*.test.mjs
+
+      - name: "Check: HTML is valid"
+        id: html
+        if: ${{ !cancelled() && steps.tools.outcome == 'success' }}
+        run: '"$RUNNER_TEMP/tools/node_modules/.bin/html-validate" "**/*.html"'
+
+      # linkinator serves the checkout on 127.0.0.1, so the external-URL skip
+      # must exempt that host or nothing gets checked. /cdn-cgi/ paths exist
+      # only at the Cloudflare edge.
+      - name: "Check: local links resolve"
+        id: links
+        if: ${{ !cancelled() && steps.tools.outcome == 'success' }}
+        run: '"$RUNNER_TEMP/tools/node_modules/.bin/linkinator" . --recurse --skip "^https?://(?!127\.0\.0\.1[:/]|localhost[:/])" --skip "/cdn-cgi/"'
+
+      - name: "Check: no localhost references"
+        id: localhost
+        if: ${{ !cancelled() }}
+        run: "! grep -rEn 'http://localhost|127\\.0\\.0\\.1' --include=*.html --include=*.css --include=*.js ."
+
+      - name: "Summary: list every failed check"
+        if: ${{ !cancelled() }}
+        env:
+          OUTCOMES: "workflow-policy=${{ steps.policy.outcome }} html-validate=${{ steps.html.outcome }} local-links=${{ steps.links.outcome }} no-localhost=${{ steps.localhost.outcome }}"
+        run: node scripts/check-workflow-policy.mjs --summary "$OUTCOMES"
