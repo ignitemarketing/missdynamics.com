@@ -29,9 +29,12 @@ jobs:
         with:
           persist-credentials: false
 
+      # --legacy-peer-deps: html-validate's optional jest/vitest peers crash
+      # npm 10's resolver with "Cannot read properties of null (reading
+      # 'edgesOut')", the same error that broke the old hermes npx step.
       - name: "Setup: install check tools"
         id: tools
-        run: npm install --no-save --no-audit --no-fund --prefix "$RUNNER_TEMP/tools" html-validate@11.6.2 linkinator@8.0.3
+        run: npm install --no-save --no-audit --no-fund --legacy-peer-deps --prefix "$RUNNER_TEMP/tools" html-validate@11.6.2 linkinator@8.0.3
 
       - name: "Check: workflow policy"
         id: policy
