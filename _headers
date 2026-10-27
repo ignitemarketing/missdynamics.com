@@ -1,0 +1,11 @@
+# Cloudflare Pages response headers.
+# The CSP is report-only for the first deploy: check the browser console on
+# the live page, then rename the header to Content-Security-Policy. Drop
+# https://cdn.tailwindcss.com and 'unsafe-inline' from script-src once the
+# Tailwind Play CDN script is gone. HSTS leaves out includeSubDomains until
+# every subdomain of missdynamics.com is confirmed to serve HTTPS.
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' https://cdn.tailwindcss.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
