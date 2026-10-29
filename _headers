@@ -9,3 +9,8 @@
   X-Frame-Options: DENY
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' https://cdn.tailwindcss.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+
+# Keep the <project>.pages.dev host and its preview subdomains out of search
+# results; missdynamics.com is the canonical host.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
